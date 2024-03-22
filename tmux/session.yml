@@ -10,5 +10,5 @@ windows:
   - server:
       layout: tiled
       panes:
-        - #cd .. && mosquitto -p 1984
-        - #cd .. && mosquito_sub -h 127.0.0.1 -p 1883 -t publisher
+        - cd .. && mosquitto -p 1883
+        - cd .. && mosquito_sub -h 127.0.0.1 -p 1883 -t publisher

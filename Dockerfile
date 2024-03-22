@@ -27,6 +27,9 @@ WORKDIR /home/dlstreamer/
 COPY . .
 # RUN wget https://github.com/intel-iot-devkit/sample-videos/raw/master/person-bicycle-car-detection.mp4
 
+# disable mosquitto service
+RUN systemctl disable mosquitto.service
+
 ##########################
 # EJECUCIÓN DEL PROGRAMA #
 ##########################

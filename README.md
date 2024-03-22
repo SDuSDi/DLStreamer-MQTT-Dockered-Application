@@ -1,7 +1,7 @@
 # DLStreamer MQTT Dockered Application
 
 <!-- This Project contains my desperation to make Mosquitto work with the port I need. I'm gonna go fuck myself -->
-This project contains the code for an application that takes video detections from a docker and sends them to the host system by MQTT. 
+This project contains the code for an application that takes video detections from a docker and sends them to the host system by MQTT made during my curricular end-of-studies intership at CATEC. 
 
 <!-- ![image](assets/iris_pocho.png)
 ![image](assets/schema.png) -->
