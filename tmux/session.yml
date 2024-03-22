@@ -1,0 +1,14 @@
+name: DLStreamer MQTT Dockered Application
+root: ./
+startup_window: main
+windows:
+  - main:
+      layout: tiled
+      panes: # launch the application with mqtt-mosquitto active
+        - ../execute.sh /dev/video0 mqtt-mosquitto
+        -
+  - server:
+      layout: tiled
+      panes:
+        - #cd .. && mosquitto -p 1984
+        - #cd .. && mosquito_sub -h 127.0.0.1 -p 1883 -t publisher

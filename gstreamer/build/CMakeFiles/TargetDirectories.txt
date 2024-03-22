@@ -1,0 +1,3 @@
+/home/bmartinez/workspace/dlstreamer/gstreamer/build/CMakeFiles/rebuild_cache.dir
+/home/bmartinez/workspace/dlstreamer/gstreamer/build/CMakeFiles/edit_cache.dir
+/home/bmartinez/workspace/dlstreamer/gstreamer/build/CMakeFiles/gstreamer.dir
