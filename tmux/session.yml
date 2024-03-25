@@ -5,7 +5,7 @@ windows:
   - main:
       layout: tiled
       panes: # launch the application with mqtt-mosquitto active
-        - ../execute.sh /dev/video0 mqtt-mosquitto
+        - ../execute.sh /dev/video0 mqtt-mosquitto 127.0.0.1
         -
   - server:
       layout: tiled

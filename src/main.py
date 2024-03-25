@@ -26,18 +26,16 @@ _args.add_argument("-i", "--input", help="Required. Path to input video file",
                    required=True, type=str)
 _args.add_argument("-d", "--detection_model", help="Required. Path to an .xml file with object detection model",
                    required=True, type=str)
-_args.add_argument("-c1", "--classification_model1",
-                   help="Required. Path to an .xml file with object classification model",
+_args.add_argument("-c1", "--classification_model1", help="Required. Path to an .xml file with object classification model",
                    required=True, type=str)
-_args.add_argument("-c2", "--classification_model2",
-                   help="Required. Path to an .xml file with object classification model",
+_args.add_argument("-c2", "--classification_model2", help="Required. Path to an .xml file with object classification model",
                    required=True, type=str)
-_args.add_argument("-c3", "--classification_model3",
-                   help="Required. Path to an .xml file with object classification model",
+_args.add_argument("-c3", "--classification_model3", help="Required. Path to an .xml file with object classification model",
                    required=True, type=str)
-_args.add_argument("-o", "--output",
-                   help="Required. Output type",
+_args.add_argument("-o", "--output", help="Required. Output type",
                    required=True, type=str)
+_args.add_argument("-p", "--conection", help="Required for MQTT only. IP of the mqtt broker. Conection will be made in port 1883",
+                   default="127.0.0.1", type=str)
 args = parser.parse_args()
 
 #Es cutre, no me juzguen
@@ -105,8 +103,8 @@ def create_launch_string():
         sink = "gvametaconvert ! gvametapublish file-format=json-lines file-path=output.json ! \
                 gvafpscounter ! fakesink sync=false"
     elif args.output == "mqtt-mosquitto":
-        sink = "gvametaconvert ! \
-                gvametapublish address=91.121.93.94 method=mqtt mqtt-client-id=bmartinez-dlstreamer-client topic=dlstreamer-publisher ! \
+        sink = f"gvametaconvert ! \
+                gvametapublish address={args.conection} method=mqtt mqtt-client-id=bmartinez-dlstreamer-client topic=dlstreamer-publisher ! \
                 gvawatermark name=gvawatermark ! videoconvert n-threads=4 ! gvafpscounter ! autovideosink sync=false"
     else:
         print("Unsupported output type")
