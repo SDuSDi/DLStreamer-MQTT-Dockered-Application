@@ -11,4 +11,4 @@ windows:
       layout: tiled
       panes:
         - cd .. && mosquitto -p 1883
-        - cd .. && mosquito_sub -h 127.0.0.1 -p 1883 -t publisher
+        - sleep 2; cd .. && mosquitto_sub -h 127.0.0.1 -p 1883 -t dlstreamer-publisher
