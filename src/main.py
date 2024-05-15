@@ -112,13 +112,14 @@ def create_launch_string():
 
     return f"{source}={args.input} ! image/jpeg,height=720,framerate=30/1 ! jpegdec ! videoconvert ! \
     videoconvert n-threads=4 ! capsfilter caps=\"video/x-raw,format=BGRx\" ! \
-    gvadetect model={DETECTION_MODEL} model_proc={DETECTION_MODEL_PROC} device=CPU ! queue ! \
-    gvaclassify model={VEHICLE_CLASSIFICATION_MODEL} model-proc={VEHICLE_CLASSIFICATION_MODEL_PROC} device=CPU object-class=vehicle ! queue ! \
     gvadetect model={args.detection_model} device=CPU ! queue ! \
     gvainference model={args.classification_model1} device=CPU inference-region=roi-list ! queue ! \
     gvainference model={args.classification_model2} device=CPU inference-region=roi-list ! queue ! \
     gvainference model={args.classification_model3} device=CPU inference-region=roi-list ! queue ! \
     {sink}"
+
+    # gvadetect model={DETECTION_MODEL} model_proc={DETECTION_MODEL_PROC} device=CPU ! queue ! \
+    # gvaclassify model={VEHICLE_CLASSIFICATION_MODEL} model-proc={VEHICLE_CLASSIFICATION_MODEL_PROC} device=CPU object-class=vehicle ! queue ! \
 
 def glib_mainloop():
     mainloop = GLib.MainLoop()
